@@ -46,5 +46,8 @@ allProducts.forEach(function (product) {
 });
 
 function addProductBasketArray(productId) {
-  console.log(productId);
+  let mainProduct = allProducts.find(function (product) {
+    return product.id === productId;
+  });
+  console.log(mainProduct);
 }
