@@ -67,5 +67,30 @@ function basketProductsGenerator(userBasketArray) {
     basketProductImg.setAttribute("width", "100");
     basketProductImg.setAttribute("height", "100");
     basketProductImg.classList.add("cart-item-image");
+
+    let basketProductTitlesSpan = document.createElement("span");
+    basketProductTitlesSpan.classList.add("cart-item-title");
+    basketProductTitlesSpan.innerHTML = product.title;
+
+    basketProductDetailsContainer.append(
+      basketProductImg,
+      basketProductTitlesSpan
+    );
+
+    let basketProductPriceSpan = document.createElement("span");
+    basketProductPriceSpan.className = "cart-price cart-column";
+    basketProductPriceSpan.innerHTML = product.price;
+
+    let basketProductInputContainer = document.createElement("div");
+    basketProductInputContainer.className = "cart-quantity cart-column";
+
+    let basketProductInput = document.createElement("input");
+    basketProductInput.className = "cart-quantity-input";
+    basketProductInput.value = "1";
+    basketProductInput.setAttribute("type", "number");
+
+    let basketProductRemoveBtn = document.createElement("button");
+    basketProductRemoveBtn.className = "btn btn-danger";
+    basketProductRemoveBtn.innerHTML = "Remove";
   });
 }
