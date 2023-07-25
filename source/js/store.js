@@ -6,7 +6,9 @@ let allProducts = [
   { id: 5, title: "Coffee", price: 98, img: "Images/Cofee.png" },
   { id: 6, title: "Shirt", price: 65.33, img: "Images/Shirt.png" },
 ];
+
 const shopItemsContainer = document.querySelector(".shop-items");
+let userBasket = [];
 
 allProducts.forEach(function (product) {
   let productContainer = document.createElement("div");
@@ -30,6 +32,10 @@ allProducts.forEach(function (product) {
   let productAddBtn = document.createElement("button");
   productAddBtn.innerHTML = "Add to cart";
   productAddBtn.className = "btn btn-primary shop-item-button";
+  productAddBtn.addEventListener("click", function () {
+    addProductBasketArray(product.id);
+  });
+
   productDetailContainer.append(productPriceSpan, productAddBtn);
   productContainer.append(
     productTitleSpan,
@@ -38,3 +44,7 @@ allProducts.forEach(function (product) {
   );
   shopItemsContainer.append(productContainer);
 });
+
+function addProductBasketArray(productId) {
+  console.log(productId);
+}
