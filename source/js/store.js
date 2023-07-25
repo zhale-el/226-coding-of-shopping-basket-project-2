@@ -8,6 +8,7 @@ let allProducts = [
 ];
 
 const shopItemsContainer = document.querySelector(".shop-items");
+const basketProductsContainer = document.querySelector(".cart-items");
 let userBasket = [];
 
 allProducts.forEach(function (product) {
@@ -49,5 +50,22 @@ function addProductBasketArray(productId) {
   let mainProduct = allProducts.find(function (product) {
     return product.id === productId;
   });
-  console.log(mainProduct);
+
+  userBasket.push(mainProduct);
+  console.log(userBasket);
+}
+function basketProductsGenerator(userBasketArray) {
+  userBasketArray.forEach(function (product) {
+    let basketProductContainer = document.createElement("div");
+    basketProductContainer.classList.add("cart-row");
+
+    let basketProductDetailsContainer = document.createElement("div");
+    basketProductDetailsContainer.classList.add("cart-item cart-column");
+
+    let basketProductImg = document.createElement("img");
+    basketProductImg.setAttribute("src", product.img);
+    basketProductImg.setAttribute("width", "100");
+    basketProductImg.setAttribute("height", "100");
+    basketProductImg.classList.add("cart-item-image");
+  });
 }
