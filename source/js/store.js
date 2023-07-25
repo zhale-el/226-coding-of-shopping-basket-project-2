@@ -52,6 +52,7 @@ function addProductBasketArray(productId) {
   });
 
   userBasket.push(mainProduct);
+  // basketProductsGenerator(userBasket);
   console.log(userBasket);
 }
 function basketProductsGenerator(userBasketArray) {
@@ -60,7 +61,7 @@ function basketProductsGenerator(userBasketArray) {
     basketProductContainer.classList.add("cart-row");
 
     let basketProductDetailsContainer = document.createElement("div");
-    basketProductDetailsContainer.classList.add("cart-item cart-column");
+    basketProductDetailsContainer.className = "cart-item cart-column";
 
     let basketProductImg = document.createElement("img");
     basketProductImg.setAttribute("src", product.img);
@@ -92,5 +93,17 @@ function basketProductsGenerator(userBasketArray) {
     let basketProductRemoveBtn = document.createElement("button");
     basketProductRemoveBtn.className = "btn btn-danger";
     basketProductRemoveBtn.innerHTML = "Remove";
+
+    basketProductInputContainer.append(
+      basketProductInput,
+      basketProductRemoveBtn
+    );
+    basketProductContainer.append(
+      basketProductDetailsContainer,
+      basketProductPriceSpan,
+      basketProductInputContainer
+    );
+    basketProductsContainer.append(basketProductContainer);
+    console.log(basketProductContainer);
   });
 }
