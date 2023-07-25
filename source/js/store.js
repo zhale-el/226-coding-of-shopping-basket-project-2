@@ -52,10 +52,11 @@ function addProductBasketArray(productId) {
   });
 
   userBasket.push(mainProduct);
-  // basketProductsGenerator(userBasket);
+  basketProductsGenerator(userBasket);
   console.log(userBasket);
 }
 function basketProductsGenerator(userBasketArray) {
+  basketProductsContainer.innerHTML = "";
   userBasketArray.forEach(function (product) {
     let basketProductContainer = document.createElement("div");
     basketProductContainer.classList.add("cart-row");
